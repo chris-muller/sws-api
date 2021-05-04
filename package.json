@@ -7,7 +7,11 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.jsx src",
+    "lint:fix": "eslint --ext .js,.js src --fix && yarn prettier:fix",
+    "prettier": "prettier --config ./.prettierrc --check \"src/**/*.js*\"",
+    "prettier:fix": "prettier --config ./.prettierrc --write \"src/**/*.js*\""
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -19,6 +23,12 @@
     "@babel/core": "^7.14.0",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.14.0",
-    "nodemon": "^2.0.7"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
   }
 }
