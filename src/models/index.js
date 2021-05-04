@@ -1,3 +1,3 @@
-export * from './company'
-export * from './companyPriceClose'
-export * from './companyScore'
+export { default as companyModel } from './company'
+export { default as companyPriceCloseModel } from './companyPriceClose'
+export { default as companyScoreModel } from './companyScore'

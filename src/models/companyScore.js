@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 
 export default (sequelize) => {
-  const companyScore = sequelize.define(
+  sequelize.define(
     'companyScore',
     {
       id: {
@@ -29,13 +29,4 @@ export default (sequelize) => {
       tableName: 'swsCompanyScore',
     },
   )
-
-  companyScore.associate = (models) => {
-    this.hasOne(models.company, {
-      foreignKey: 'company_id',
-      sourceKey: 'id',
-    })
-  }
-
-  return companyScore
 }

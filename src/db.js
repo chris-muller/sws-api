@@ -4,31 +4,20 @@ import { Sequelize } from 'sequelize'
 import config from './config'
 import * as modelDefiners from './models'
 
-const sequelize = new Sequelize(config.DATABASE_CONN_STRING)
-
-export default async () => {
-  try {
-    await sequelize.authenticate()
-    console.log('Connection has been established successfully.')
-  } catch (error) {
-    console.error('Unable to connect to the database:', error)
-  }
-}
+export const sequelize = new Sequelize(config.DATABASE_CONN_STRING)
 
 // We define all models according to their files
 Object.values(modelDefiners).forEach((modelDefiner) => modelDefiner(sequelize))
 
-// Apply any associations that have been configured
-Object.values(modelDefiners)
-  .filter((md) => md.hasOwnProperty('associate'))
-  .forEach((modelDefiner) => {
-    modelDefiner.associate(sequelize.models)
-  })
+// Configure model associations
+sequelize.models.company.hasMany(sequelize.models.companyPriceClose, {
+  sourceKey: 'id',
+  foreignKey: 'company_id',
+})
 
-const models = {
-  sequelize,
-  Sequelize,
-  ...sequelize.models,
-}
+sequelize.models.company.hasOne(sequelize.models.companyScore, {
+  sourceKey: 'id',
+  foreignKey: 'company_id',
+})
 
-export default models
+export default sequelize

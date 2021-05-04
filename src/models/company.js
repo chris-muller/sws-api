@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 
 export default (sequelize) => {
-  const company = sequelize.define(
+  sequelize.define(
     'company',
     {
       id: {
@@ -27,6 +27,4 @@ export default (sequelize) => {
       tableName: 'swsCompany',
     },
   )
-
-  return company
 }

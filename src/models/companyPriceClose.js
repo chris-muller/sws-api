@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
 export default (sequelize) => {
-  const companyPriceClose = sequelize.define(
+  sequelize.define(
     'companyPriceClose',
     {
       date: { type: DataTypes.DATEONLY, allowNull: false, primaryKey: true },
@@ -22,13 +22,4 @@ export default (sequelize) => {
       tableName: 'swsCompanyPriceClose',
     },
   )
-
-  companyPriceClose.associate = (models) => {
-    this.hasOne(models.company, {
-      foreignKey: 'company_id',
-      sourceKey: 'id',
-    })
-  }
-
-  return companyPriceClose
 }
