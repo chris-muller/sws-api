@@ -1,4 +1,6 @@
 import express from 'express'
+import * as companyController from './controllers/companyController'
+
 const router = express.Router()
 
 /*
@@ -15,5 +17,7 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+router.get('/company', companyController.index)
 
 export default router
