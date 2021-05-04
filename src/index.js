@@ -1,6 +1,10 @@
 import express from 'express'
 import config from './config'
 import routes from './routes'
+import models from './models'
+
+// Test db setup works
+models()
 
 /* 
   This is where additional setup/configuration or bootstrap code would go
