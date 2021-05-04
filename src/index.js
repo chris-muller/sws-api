@@ -13,8 +13,8 @@ models()
 // Log unhandled rejections when not in production to help troubleshoot where they occur
 if (!config.PRODUCTION) {
   process.on('unhandledRejection', (reason, promise) => {
-    console.log('Unhandled Rejection at:', promise, 'reason:', reason);
-  });
+    console.log('Unhandled Rejection at:', promise, 'reason:', reason)
+  })
 }
 
 const app = express()

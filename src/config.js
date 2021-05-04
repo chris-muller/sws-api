@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import 'dotenv/config'
 
 const { NODE_ENV } = process.env
 
@@ -18,14 +18,14 @@ const configurations = {
     TEST: false,
     PRODUCTION: false,
   },
-  development:{
-    DEVELOPMENT: true
+  development: {
+    DEVELOPMENT: true,
   },
-  test:{
-    TEST: true
+  test: {
+    TEST: true,
   },
-  production:{
-    PRODUCTION: true
+  production: {
+    PRODUCTION: true,
   },
 }
 
