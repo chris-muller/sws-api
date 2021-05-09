@@ -4,7 +4,9 @@ import { Sequelize } from 'sequelize'
 import config from './config'
 import * as modelDefiners from './models'
 
-export const sequelize = new Sequelize(config.DATABASE_CONN_STRING)
+export const sequelize = new Sequelize(config.DATABASE_CONN_STRING, {
+  logging: false,
+})
 
 // We define all models according to their files
 Object.values(modelDefiners).forEach((modelDefiner) => modelDefiner(sequelize))
