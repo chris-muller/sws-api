@@ -8,7 +8,6 @@ import companyScorePresenter from './companyScorePresenter'
 */
 
 export default (company) => {
-  console.log(`company`, JSON.stringify(company, null, 5))
   const {
     id,
     name,
