@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import * as companyController from './controllers/companyController'
 
 const router = express.Router()
@@ -13,6 +14,8 @@ router.use((req, res, next) => {
   console.log(`Request: ${req.originalUrl} Time: ${Date.now()}`)
   next()
 })
+
+router.use(cors())
 
 router.get('/', (req, res) => {
   res.send('Hello World!')
